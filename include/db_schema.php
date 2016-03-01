@@ -10,8 +10,6 @@ class dbDelta_db_schema {
         $this->index_test_002();
         $this->index_test_003();
         $this->index_test_004();
-        $this->index_test_005();
-        $this->index_test_006();
     }
 
     /**
@@ -97,44 +95,6 @@ class dbDelta_db_schema {
             first varchar(255) NULL,
             PRIMARY KEY  (id),
             INDEX first (first)
-            '
-        );
-    }
-
-
-    /**
-     * Private Test
-     *
-     */
-    private function index_test_005() {
-        $this->build_table( 'dbdelta_test_005',
-            '
-                    slp_repq_id         bigint(20) unsigned NOT NULL auto_increment,
-                    slp_repq_time       timestamp NOT NULL default current_timestamp,
-                    slp_repq_query      varchar(255) NOT NULL,
-                    slp_repq_tags       varchar(255),
-                    slp_repq_address    varchar(255),
-                    slp_repq_radius     varchar(5),
-                    meta_value          longtext,
-                    PRIMARY KEY  (slp_repq_id),
-                    KEY slp_repq_time (slp_repq_time)
-            '
-        );
-    }
-
-
-    /**
-     * Private Test
-     *
-     */
-    private function index_test_006() {
-        $this->build_table( 'dbdelta_test_006',
-            '
-                    slp_repqr_id    bigint(20) unsigned NOT NULL auto_increment,
-                    slp_repq_id     bigint(20) unsigned NOT NULL,
-                    sl_id           mediumint(8) unsigned NOT NULL,
-                    PRIMARY KEY  (slp_repqr_id),
-                    KEY slp_repq_id (slp_repq_id)
             '
         );
     }
